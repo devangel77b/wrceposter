@@ -1,0 +1,169 @@
+\documentclass[pdf]{beamer}
+\usepackage[orientation=landscape,size=a0,scale=1.4,debug]{beamerposter}
+
+\mode<presentation>{\usetheme{USNA-WRCE}}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{siunitx} %pretty measurement unit rendering
+\sisetup{per=frac,fraction=sfrac}
+\usepackage{listings}
+\usepackage{hyperref} %enable hyperlink for urls
+
+\lstdefinestyle{mbedC}{
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{magenta}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+ 	morecomment=[l][\color{red}]{\#},
+	columns=fullflexible,
+	showstringspaces=false,
+	language=C,
+	backgroundcolor=\color{lightgray},
+	frame=single
+}
+\lstdefinestyle{usnaMatlab}{
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{magenta}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+ 	morecomment=[l][\color{red}]{\#},
+	columns=fullflexible,
+	showstringspaces=false,
+	language=Matlab,
+	%backgroundcolor=\color{lightgray},
+	%frame=single
+}
+\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	showstringspaces=false
+}
+
+
+
+\title{\huge Your Project Title Goes Here.\\ It May Span Two Lines If Needed}
+\author{MIDN 1/C Firstname Lastname and Asst. Prof. Firstname Lastname}
+\institute[WRCE]{$^{1}$Weapons, Robotics, and Control Engineering, United States Naval Academy}
+\date{\today}
+
+% edit this depending on how tall your header is. We should make this scaling automatic :-/
+%\newlength{\columnheight}
+%\setlength{\columnheight}{104cm}
+
+\begin{document}
+\begin{frame}[fragile]
+\begin{columns}
+
+\begin{column}{0.25\textwidth}
+\section{Motivation}
+\begin{block}{Motivation}
+Explain why we care about this problem.  As space permits: define any unfamiliar terms, concepts or acronyms; or describe how your topic fits in a larger engineering context; or its economic or societal, impacts; or possible applications of your work.  Include a graphic.
+\begin{figure}
+\includegraphics[width=\columnwidth]{shitty-figure1.png}
+\caption{Captions are included below the image.}
+\end{figure}
+\end{block}
+
+\section{Problem statement}
+\begin{block}{Problem statement}
+Succinct, precise. Consider using a common format such as ``given-find'', hypothesis, or ``research questions''. Be sure to clearly define the process you intend to study, the properties you will demonstrate and explicitly state any assumptions.  Include a diagram. 
+\begin{figure}
+\includegraphics[width=\columnwidth]{shitty-figure2.png}
+\caption{Figures should have informative captions.}
+\end{figure}
+\end{block}
+
+\section{Related work}
+\begin{block}{Related work}
+Short mention of other work by number \cite{chen1993linear,chen1965automatic}. %[1], [2].  
+\end{block}
+\end{column}
+
+\begin{column}{0.25\textwidth}
+\section{Methods}
+\begin{block}{Methods}
+Explain any models, analysis techniques, or design procedures. Insert equations or diagrams as needed.  Be sure to define variables and state assumptions.  Such as $\dot{x} = Ax+Bu$ , where
+\begin{itemize}
+\item $x$ is an $N \times 1$ vector of state variables
+\item $A$ is an $N \times N$ matrix of constants
+\item $u$ is an $M \times 1$ vector of inputs
+\item $B$ is an $N \times M$ matrix of input coefficients
+\end{itemize}
+
+If you built an experimental apparatus, include annotated photographs,  mechanical drawings, or circuit diagrams
+\begin{figure}
+\includegraphics[width=\columnwidth]{shitty-figure3.png}
+\caption{Gimbal design.}
+\end{figure}
+
+Algorithms are often best explained using pseudocode.
+\begin{lstlisting}[style=usnaMatlab]
+Rank = ProcessList(List)
+for i = 1:LengthOfList
+  ExtractElement(i)
+end
+\end{lstlisting}
+
+If you performed controlled statistically repeatable experiments, describe the scenario, controlled variables, and any non-trivial procedures. 
+\end{block}
+\end{column}
+
+\begin{column}{0.25\textwidth}
+\begin{block}{Results}
+Most results will be reported in a series of graphs, photos, or tables.   Each should have a brief caption and explanation. 
+
+Be sure the fonts are legible.  \lstinline{.png} is a good format for graphics that include text. Do not consider adding text from within PowerPoint for more control because it looks like shit when you do it.  Plots should include any necessary annotations and axis labels. Include units.
+\begin{figure}
+\includegraphics[width=\columnwidth]{shitty-figure5.png}
+\caption{Predicted vs. experiment}
+\end{figure} 
+
+The results section will take up a large portion of the poster.  
+
+Feel free to move the sections around if they don’t require a full column. 
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{shitty-figure6.png}
+\caption{Circuit board example of annotated photo.}
+\end{figure}
+\end{block}
+\end{column}
+
+\begin{column}{0.25\textwidth}
+\begin{table}
+\caption{Tables have captions too.}
+\begin{tabular}{lll}
+\toprule
+trial & x & y \\
+\midrule
+1 & 2 & 5 \\
+1 & 3 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+\begin{block}{Conclusion}
+Briefly and interpret your results. Were these results expected? Why? Are there obvious error sources? How do they compare with the exiting state of the art?   Mention possible follow on work.   Do not include exaggerated claims of the importance of your work or make unsupported conjectures. 
+\end{block}
+
+\section*{References}
+\begin{block}{References}
+% ieee format here
+\nocite{bingulac1994on, vidmar2018on}
+\bibliographystyle{IEEEtran}
+\bibliography{example.bib}
+\end{block}
+
+\section*{Acknowledgement}
+\begin{block}{Acknowledgement}
+Thank any collaborators, faculty or staff. Use proper titles.  Do not thank your adviser. Remove section if not needed.
+\end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+\end{document}
+
