@@ -1,15 +1,22 @@
 \documentclass[pdf]{beamer}
-\usepackage[orientation=landscape,size=a0,scale=1.4,debug]{beamerposter}
+\usepackage[orientation=landscape,size=custom,width=101.6,height=76.2,scale=1.6,debug]{beamerposter}
 
 \mode<presentation>{\usetheme{WRCE}}
 
-\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{siunitx} %pretty measurement unit rendering
 \sisetup{per=frac,fraction=sfrac}
 \usepackage{listings}
 \usepackage{hyperref} %enable hyperlink for urls
+\usepackage[export]{adjustbox}
+
+%\usepackage{newtxtext} %,newtxmath}
+\usepackage{amsmath}
+\usepackage{helvet}
+\usefonttheme{professionalfonts}
+\usefonttheme[onlymath]{serif}
+%\setmainfont{helvet}
 
 \lstdefinestyle{mbedC}{
 	basicstyle=\ttfamily,
@@ -28,11 +35,11 @@
 	keywordstyle=\color{blue}\ttfamily,
 	stringstyle=\color{magenta}\ttfamily,
 	commentstyle=\color{green}\ttfamily,
- 	morecomment=[l][\color{red}]{\#},
+ 	morecomment=[l][\color{red}]{\%},
 	columns=fullflexible,
 	showstringspaces=false,
 	language=Matlab,
-	%backgroundcolor=\color{lightgray},
+	backgroundcolor=\color{cyan},
 	%frame=single
 }
 \lstset{
@@ -41,9 +48,11 @@
 	showstringspaces=false
 }
 
+% Uncomment next line to restore figure numbers if you like that sort of thing
+\setbeamertemplate{caption}[numbered]
 
 
-\title{\huge Your Project Title Goes Here.\\ It May Span Two Lines If Needed}
+\title{\huge Your Project Title Goes Here. It May\\Span Two Lines If Needed}
 \author{MIDN 1/C Firstname Lastname and Asst. Prof. Firstname Lastname}
 \institute[WRCE]{$^{1}$Weapons, Robotics, and Control Engineering, United States Naval Academy}
 \date{\today}
@@ -57,33 +66,46 @@
 \begin{columns}
 
 \begin{column}{0.25\textwidth}
+\begin{minipage}[t][\textheight]{\linewidth}
 \section{Motivation}
-\begin{block}{Motivation}
+\begin{block}{Motivation}\small
 Explain why we care about this problem.  As space permits: define any unfamiliar terms, concepts or acronyms; or describe how your topic fits in a larger engineering context; or its economic or societal, impacts; or possible applications of your work.  Include a graphic.
+
 \begin{figure}
-\includegraphics[width=\columnwidth]{figure1.png}
+\includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{figure1.png}
 \caption{Captions are included below the image.}
 \end{figure}
 \end{block}
+\vfill
 
 \section{Problem statement}
-\begin{block}{Problem statement}
+\begin{block}{Problem statement}\small
 Succinct, precise. Consider using a common format such as ``given-find'', hypothesis, or ``research questions''. Be sure to clearly define the process you intend to study, the properties you will demonstrate and explicitly state any assumptions.  Include a diagram. 
-\begin{figure}
-\includegraphics[width=\columnwidth]{figure2.png}
-\caption{Figures should have informative captions.}
-\end{figure}
 \end{block}
+\vfill
+
+\section{Re: Section headings}
+\begin{block}{Re: Section headings}\small
+Develop with your advisor. Depending on the nature of your work other headings may be more pertinent. Common options could include: Abstract, Testbed, Controller, Model, Sensors, Sources of Noise, etc.
+\end{block}
+\vfill
+
 
 \section{Related work}
-\begin{block}{Related work}
+\begin{block}{Related work}\small
 Short mention of other work by number \cite{chen1993linear,chen1965automatic}. %[1], [2].  
 \end{block}
+\end{minipage}
 \end{column}
 
+
+
+
+
 \begin{column}{0.25\textwidth}
+\begin{minipage}[t][\textheight]{\linewidth}
 \section{Methods}
-\begin{block}{Methods}
+\begin{block}{Methods}\small
 Explain any models, analysis techniques, or design procedures. Insert equations or diagrams as needed.  Be sure to define variables and state assumptions.  Such as $\dot{x} = Ax+Bu$ , where
 \begin{itemize}
 \item $x$ is an $N \times 1$ vector of state variables
@@ -91,47 +113,68 @@ Explain any models, analysis techniques, or design procedures. Insert equations 
 \item $u$ is an $M \times 1$ vector of inputs
 \item $B$ is an $N \times M$ matrix of input coefficients
 \end{itemize}
+\end{block}
+\vfill
 
+\begin{block}{}\small
 If you built an experimental apparatus, include annotated photographs,  mechanical drawings, or circuit diagrams
 \begin{figure}
-\includegraphics[width=\columnwidth]{figure3.png}
-\caption{Gimbal design.}
+\includegraphics[width=0.66\columnwidth, cfbox=white 1pt]{newfigure2.png}
+\caption{Design for 3D printed part}
 \end{figure}
+\end{block}
+\vfill
 
+\begin{block}{}
 Algorithms are often best explained using pseudocode.
 \begin{lstlisting}[style=usnaMatlab]
-Rank = ProcessList(List)
-for i = 1:LengthOfList
-  ExtractElement(i)
+while 1
+  grab image from camera
+  find centroid of target
+  compute move command
 end
 \end{lstlisting}
+\end{block}
+\vfill
 
+\begin{block}{}
 If you performed controlled statistically repeatable experiments, describe the scenario, controlled variables, and any non-trivial procedures. 
 \end{block}
+\end{minipage}
 \end{column}
 
+
+
+
+
+
 \begin{column}{0.25\textwidth}
-\begin{block}{Results}
+\begin{minipage}[t][\textheight]{\linewidth}
+\begin{block}{Results}\small
 Most results will be reported in a series of graphs, photos, or tables.   Each should have a brief caption and explanation. 
 
 Be sure the fonts are legible.  \lstinline{.png} is a good format for graphics that include text. Do not consider adding text from within PowerPoint for more control because it looks like shit when you do it.  Plots should include any necessary annotations and axis labels. Include units.
 \begin{figure}
-\includegraphics[width=\columnwidth]{figure5.png}
-\caption{Predicted vs. experiment}
+\includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{newfigure4.png}
+\caption{Predicted vs. experimental data}
 \end{figure} 
 
 The results section will take up a large portion of the poster.  
+\end{block}
+\vfill
 
+\begin{block}{}
 Feel free to move the sections around if they don’t require a full column. 
-
 \begin{figure}
-\includegraphics[width=\columnwidth]{figure6.png}
+\includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{newfigure5.png}
 \caption{Circuit board example of annotated photo.}
 \end{figure}
 \end{block}
+\end{minipage}
 \end{column}
 
 \begin{column}{0.25\textwidth}
+\begin{minipage}[t][\textheight]{\linewidth}
 \begin{table}
 \caption{Tables have captions too.}
 \begin{tabular}{lll}
@@ -143,24 +186,28 @@ trial & x & y \\
 \bottomrule
 \end{tabular}
 \end{table}
+\vfill
 
 \section{Conclusion}
-\begin{block}{Conclusion}
+\begin{block}{Conclusion}\small
 Briefly and interpret your results. Were these results expected? Why? Are there obvious error sources? How do they compare with the exiting state of the art?   Mention possible follow on work.   Do not include exaggerated claims of the importance of your work or make unsupported conjectures. 
 \end{block}
+\vfill
 
 \section*{References}
 \begin{block}{References}
 % ieee format here
 \nocite{bingulac1994on, vidmar2018on}
 \bibliographystyle{IEEEtran}
-\bibliography{example.bib}
+\scriptsize\bibliography{example.bib}
 \end{block}
+\vfill
 
 \section*{Acknowledgement}
 \begin{block}{Acknowledgement}
-Thank any collaborators, faculty or staff. Use proper titles.  Do not thank your adviser. Remove section if not needed.
+\small Thank any collaborators, faculty or staff. Use proper titles.  Do not thank your adviser. Remove section if not needed.
 \end{block}
+\end{minipage}
 \end{column}
 
 \end{columns}
