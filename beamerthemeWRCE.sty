@@ -3,48 +3,50 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{wrcecolors}
-\selectcolormodel{cmyk}
+%\selectcolormodel{cmyk}
 \mode<presentation>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setbeamercolor{background canvas}{bg=bottomgray}
+\setbeamercolor{background canvas}{bg=wrcegray}
 
-\setbeamercolor{headline}{fg=titlegray,bg=logowhite}
+\setbeamercolor{headline}{fg=wrcegray,bg=wrcewhite}
 %\setbeamercolor{footline}{fg=logowhite, bg=logogray}
 %\setbeamerfont{footline}{size=\large,series=\tt}
-\setbeamercolor{separation line}{bg=textblue}
-\setbeamercolor{title in headline}{fg=titlegray}
-\setbeamercolor{author in headline}{fg=textblue}
-\setbeamercolor{institute in headline}{fg=textblue}
+\setbeamercolor{separation line}{bg=wrceblue}
+\setbeamercolor{title in headline}{fg=wrcegray}
+\setbeamercolor{author in headline}{fg=wrceblue}
+\setbeamercolor{institute in headline}{fg=wrceblue}
 
-\setbeamercolor{framesubtitle}{fg=logowhite, bg=bottomgray}
-\setbeamercolor{author in head/foot}{fg=textblue, bg=logowhite}
-\setbeamercolor{title in head/foot}{fg=logowhite, bg=logowhite}
+\setbeamercolor{framesubtitle}{fg=wrcewhite, bg=wrcegray}
+\setbeamercolor{author in head/foot}{fg=wrceblue, bg=white}
+\setbeamercolor{title in head/foot}{fg=white, bg=white}
 
-\setbeamercolor*{normal text}{fg=logowhite, bg=bottomgray}
-\setbeamercolor*{block body}{bg=bottomgray,fg=logowhite}
-\setbeamercolor*{block title}{fg=logowhite,bg=bottomgray}
+\setbeamercolor*{normal text}{fg=wrcewhite, bg=wrcegray}
+\setbeamercolor*{block body}{bg=wrcegray,fg=wrcewhite}
+\setbeamercolor*{block title}{fg=wrcewhite,bg=wrcegray}
 \setbeamerfont{block title}{size=\LARGE,series=\bf}
-\setbeamercolor{upper separation line head}{fg=textblue}
-\setbeamercolor{lower separation line head}{fg=textblue}
+\setbeamercolor{upper separation line head}{fg=wrceblue}
+\setbeamercolor{lower separation line head}{fg=wrceblue}
 
-\setbeamercolor*{example body}{fg=logowhite,bg=textblue}
-\setbeamercolor*{example text}{fg=logowhite,bg=textblue}
-\setbeamercolor*{example title}{bg=logowhite,fg=textblue}
+\setbeamercolor*{example body}{fg=wrcewhite,bg=wrceblue}
+\setbeamercolor*{example text}{fg=wrcewhite,bg=wrceblue}
+\setbeamercolor*{example title}{fg=wrcewhite,bg=wrceblue}
 
-\setbeamercolor{alerted text}{fg=textblue}
+\setbeamercolor{alerted text}{fg=wrceblue}
 
-\setbeamercolor{caption name}{fg=textblue}
-\setbeamercolor{caption}{fg=textblue}
+\setbeamercolor{caption name}{fg=wrceblue}
+\setbeamercolor{caption}{fg=wrceblue}
 
 %\setbeamercolor{example text}{fg=taorange}
-\setbeamercolor{structure}{fg=logowhite}
+\setbeamercolor{structure}{fg=wrcewhite}
 
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
 
-\setbeamertemplate{bibliography item}{} % no symbols in bib
+%\setbeamertemplate{bibliography item}{} % no symbols in bib
+\setbeamertemplate{bibliography item}{\insertbiblabel} % numbers in bib
+
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
@@ -55,7 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{block begin}{
   \vskip1ex
-  \begin{beamercolorbox}[leftskip=0cm]{block title}%
+  \begin{beamercolorbox}[leftskip=0in]{block title}%
     \usebeamerfont*{block title}\insertblocktitle
   \end{beamercolorbox}%
   \vskip1ex
@@ -70,16 +72,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{headline}{  
-  \leavevmode
+\leavevmode
 
-\begin{beamercolorbox}[wd=\paperwidth]{headline}
-\begin{columns}[T]
-\begin{column}{0.66\paperwidth}
-\usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1ex]}
-\usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+\begin{beamercolorbox}[leftskip=0in]{headline}
+\begin{columns}[c]
+\begin{column}{0.65\paperwidth}
+\usebeamercolor{title in headline}{\color{fg}\textbf{\veryHuge{\inserttitle}}\\[1ex]}
+\vskip1ex
+\usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
 %\usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}     
 \end{column}
-\begin{column}{0.34\paperwidth}
+\begin{column}{0.33\paperwidth}
 \begin{center}
 \includegraphics[width=\columnwidth]{cropped-RCE-logo-01.png}
 \end{center}

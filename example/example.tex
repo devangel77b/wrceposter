@@ -4,6 +4,7 @@
 \mode<presentation>{\usetheme{WRCE}}
 
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{siunitx} %pretty measurement unit rendering
 \sisetup{per=frac,fraction=sfrac}
@@ -27,8 +28,8 @@
 	columns=fullflexible,
 	showstringspaces=false,
 	language=C,
-	backgroundcolor=\color{lightgray},
-	frame=single
+	backgroundcolor=\color{wrceblue},
+%	frame=single
 }
 \lstdefinestyle{usnaMatlab}{
 	basicstyle=\ttfamily,
@@ -39,20 +40,21 @@
 	columns=fullflexible,
 	showstringspaces=false,
 	language=Matlab,
-	backgroundcolor=\color{cyan},
+	backgroundcolor=\color{wrceblue},
 	%frame=single
 }
 \lstset{
 	basicstyle=\ttfamily,
 	columns=fullflexible,
-	showstringspaces=false
+	showstringspaces=false,
+	backgroundcolor=\color{wrceblue}
 }
 
 % Uncomment next line to restore figure numbers if you like that sort of thing
 \setbeamertemplate{caption}[numbered]
 
 
-\title{\huge Your Project Title Goes Here. It May\\Span Two Lines If Needed}
+\title{Your Project Title Goes Here.  It\\May Span Two Lines If Needed}
 \author{MIDN 1/C Firstname Lastname and Asst. Prof. Firstname Lastname}
 \institute[WRCE]{$^{1}$Weapons, Robotics, and Control Engineering, United States Naval Academy}
 \date{\today}
@@ -68,32 +70,33 @@
 \begin{column}{0.25\textwidth}
 \begin{minipage}[t][\textheight]{\linewidth}
 \section{Motivation}
-\begin{block}{Motivation}\small
-Explain why we care about this problem.  As space permits: define any unfamiliar terms, concepts or acronyms; or describe how your topic fits in a larger engineering context; or its economic or societal, impacts; or possible applications of your work.  Include a graphic.
+\begin{block}{Motivation}
+\small Explain why we care about this problem.  As space permits: define any unfamiliar terms, concepts or acronyms; or describe how your topic fits in a larger engineering context; or its economic or societal, impacts; or possible applications of your work.  Include a graphic.
+\end{block}
+\vfill 
 
 \begin{figure}
 \includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{figure1.png}
 \caption{Captions are included below the image.}
 \end{figure}
-\end{block}
 \vfill
 
 \section{Problem statement}
-\begin{block}{Problem statement}\small
-Succinct, precise. Consider using a common format such as ``given-find'', hypothesis, or ``research questions''. Be sure to clearly define the process you intend to study, the properties you will demonstrate and explicitly state any assumptions.  Include a diagram. 
+\begin{block}{Problem statement}
+\small Succinct, precise. Consider using a common format such as ``given-find'', hypothesis, or ``research questions''. Be sure to clearly define the process you intend to study, the properties you will demonstrate and explicitly state any assumptions.  Include a diagram. 
 \end{block}
 \vfill
 
 \section{Re: Section headings}
-\begin{block}{Re: Section headings}\small
-Develop with your advisor. Depending on the nature of your work other headings may be more pertinent. Common options could include: Abstract, Testbed, Controller, Model, Sensors, Sources of Noise, etc.
+\begin{block}{Re: Section headings}
+\small Develop with your advisor. Depending on the nature of your work other headings may be more pertinent. Common options could include: Abstract, Testbed, Controller, Model, Sensors, Sources of Noise, etc.
 \end{block}
 \vfill
 
 
 \section{Related work}
-\begin{block}{Related work}\small
-Short mention of other work by number \cite{chen1993linear,chen1965automatic}. %[1], [2].  
+\begin{block}{Related work}
+\small Short mention of other work by number \cite{chen1993linear,chen1965automatic}.  
 \end{block}
 \end{minipage}
 \end{column}
@@ -105,8 +108,8 @@ Short mention of other work by number \cite{chen1993linear,chen1965automatic}. %
 \begin{column}{0.25\textwidth}
 \begin{minipage}[t][\textheight]{\linewidth}
 \section{Methods}
-\begin{block}{Methods}\small
-Explain any models, analysis techniques, or design procedures. Insert equations or diagrams as needed.  Be sure to define variables and state assumptions.  Such as $\dot{x} = Ax+Bu$ , where
+\begin{block}{Methods}
+\small Explain any models, analysis techniques, or design procedures. Insert equations or diagrams as needed.  Be sure to define variables and state assumptions.  Such as $\dot{x} = Ax+Bu$ , where
 \begin{itemize}
 \item $x$ is an $N \times 1$ vector of state variables
 \item $A$ is an $N \times N$ matrix of constants
@@ -116,18 +119,24 @@ Explain any models, analysis techniques, or design procedures. Insert equations 
 \end{block}
 \vfill
 
-\begin{block}{}\small
-If you built an experimental apparatus, include annotated photographs,  mechanical drawings, or circuit diagrams
+\begin{block}{}
+\small If you built an experimental apparatus, include annotated photographs,  mechanical drawings, or circuit diagrams
+\end{block}
+\vfill
+
 \begin{figure}
 \includegraphics[width=0.66\columnwidth, cfbox=white 1pt]{newfigure2.png}
 \caption{Design for 3D printed part}
 \end{figure}
-\end{block}
 \vfill
 
 \begin{block}{}
-Algorithms are often best explained using pseudocode.
-\begin{lstlisting}[style=usnaMatlab]
+\small Algorithms are often best explained using pseudocode.
+%\end{block}
+%\vfill
+%
+%\begin{block}{}
+\begin{lstlisting}
 while 1
   grab image from camera
   find centroid of target
@@ -138,7 +147,7 @@ end
 \vfill
 
 \begin{block}{}
-If you performed controlled statistically repeatable experiments, describe the scenario, controlled variables, and any non-trivial procedures. 
+\small If you performed controlled statistically repeatable experiments, describe the scenario, controlled variables, and any non-trivial procedures. 
 \end{block}
 \end{minipage}
 \end{column}
@@ -150,21 +159,26 @@ If you performed controlled statistically repeatable experiments, describe the s
 
 \begin{column}{0.25\textwidth}
 \begin{minipage}[t][\textheight]{\linewidth}
-\begin{block}{Results}\small
-Most results will be reported in a series of graphs, photos, or tables.   Each should have a brief caption and explanation. 
+\begin{block}{Results}
+\small Most results will be reported in a series of graphs, photos, or tables.   Each should have a brief caption and explanation. 
+\end{block}
+\vfill
 
-Be sure the fonts are legible.  \lstinline{.png} is a good format for graphics that include text. Do not consider adding text from within PowerPoint for more control because it looks like shit when you do it.  Plots should include any necessary annotations and axis labels. Include units.
 \begin{figure}
 \includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{newfigure4.png}
 \caption{Predicted vs. experimental data}
 \end{figure} 
+\vfill
 
-The results section will take up a large portion of the poster.  
+\begin{block}{}
+\small Be sure the fonts are legible.  \lstinline{.png} is a good format for graphics that include text. Do not consider adding text from within PowerPoint for more control because it looks like shit when you do it.  Plots should include any necessary annotations and axis labels. Include units.
+
+\small The results section will take up a large portion of the poster.  
 \end{block}
 \vfill
 
 \begin{block}{}
-Feel free to move the sections around if they don’t require a full column. 
+\small Feel free to move the sections around if they don’t require a full column. 
 \begin{figure}
 \includegraphics[width=0.9\columnwidth, cfbox=white 1pt]{newfigure5.png}
 \caption{Circuit board example of annotated photo.}
@@ -175,22 +189,32 @@ Feel free to move the sections around if they don’t require a full column.
 
 \begin{column}{0.25\textwidth}
 \begin{minipage}[t][\textheight]{\linewidth}
+
+\begin{block}{}
 \begin{table}
 \caption{Tables have captions too.}
-\begin{tabular}{lll}
+\newcolumntype{C}{>{\centering}X}
+\begin{tabularx}{\columnwidth}{CCC}
 \toprule
-trial & x & y \\
-\midrule
-1 & 2 & 5 \\
-1 & 3 & 6 \\
+trial & x & y \tabularnewline
+\midrule 
+1 & 2 & 5 \tabularnewline
+1 & 3 & 6 \tabularnewline
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
+\end{block}
 \vfill
 
 \section{Conclusion}
-\begin{block}{Conclusion}\small
-Briefly and interpret your results. Were these results expected? Why? Are there obvious error sources? How do they compare with the exiting state of the art?   Mention possible follow on work.   Do not include exaggerated claims of the importance of your work or make unsupported conjectures. 
+\begin{block}{Conclusion}
+\small Briefly and interpret your results. Were these results expected? Why? Are there obvious error sources? How do they compare with the exiting state of the art?   Mention possible follow on work.   Do not include exaggerated claims of the importance of your work or make unsupported conjectures. 
+\end{block}
+\vfill
+
+\section*{Acknowledgements}
+\begin{block}{Acknowledgements}
+\small Thank any collaborators, faculty or staff and acknowledge any funding sources or sponsors. Use proper titles.  Do not thank your adviser. Remove section if not needed.
 \end{block}
 \vfill
 
@@ -200,12 +224,6 @@ Briefly and interpret your results. Were these results expected? Why? Are there 
 \nocite{bingulac1994on, vidmar1992on}
 \bibliographystyle{IEEEtran}
 \scriptsize\bibliography{example.bib}
-\end{block}
-\vfill
-
-\section*{Acknowledgement}
-\begin{block}{Acknowledgement}
-\small Thank any collaborators, faculty or staff. Use proper titles.  Do not thank your adviser. Remove section if not needed.
 \end{block}
 \end{minipage}
 \end{column}
